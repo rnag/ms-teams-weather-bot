@@ -1,0 +1,20 @@
+{
+  "appName": "ms-teams-weather-bot",
+  "projectId": "c4a23ba0-3311-45a3-8b01-736cc27284ed",
+  "solutionSettings": {
+    "name": "fx-solution-azure",
+    "version": "1.0.0",
+    "hostType": "Azure",
+    "azureResources": [],
+    "capabilities": ["Bot"],
+    "activeResourcePlugins": [
+      "fx-resource-bot",
+      "fx-resource-aad-app-for-teams",
+      "fx-resource-local-debug",
+      "fx-resource-appstudio"
+    ]
+  },
+  "version": "1.0.0",
+  "activeEnvironment": "default",
+  "programmingLanguage": "typescript"
+}

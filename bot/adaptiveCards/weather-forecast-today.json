@@ -1,0 +1,192 @@
+{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "type": "AdaptiveCard",
+  "version": "1.5",
+  "speak": "<s>Weather forecast for ${formatEpoch(data[0].sunrise_ts, 'dddd')} is high of ${formatNumber(data[0].app_max_temp / 5 * 9 + 32, 0)} and low of ${formatNumber(data[0].app_min_temp / 5 * 9 + 32, 0)} degrees with a ${formatNumber(data[0].precip * 100, 0)}% chance of rain</s><s>Winds will be ${formatNumber(data[0].wind_gust_spd, 0)} mph from the ${data[0].wind_cdir}</s>",
+  "backgroundImage": {
+    "url": "https://messagecardplayground.azurewebsites.net/assets/Mostly%20Cloudy-Background.jpg"
+  },
+  "body": [
+    {
+      "type": "ColumnSet",
+      "columns": [
+        {
+          "type": "Column",
+          "width": 35,
+          "items": [
+            {
+              "type": "Image",
+              "url": "http://openweathermap.org/img/wn/${hourly[0].weather[0].icon}@2x.png",
+              "size": "Stretch"
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": 65,
+          "items": [
+            {
+              "type": "TextBlock",
+              "text": "${loc}",
+              "weight": "Bolder",
+              "size": "Large",
+              "wrap": true
+            },
+            {
+              "type": "TextBlock",
+
+              "text": "${convertFromUTC(formatEpoch(hourly[0].dt), 'America/New_York', 'ddd, MMM dd, yyyy @ h tt')}",
+              "size": "Large",
+              "wrap": true
+            },
+            {
+              "type": "TextBlock",
+              "text": "${formatNumber(hourly[0].feels_like, 0)} / ${formatNumber(hourly[0].temp, 0)}",
+              "size": "Medium",
+              "spacing": "None",
+              "wrap": true
+            },
+            {
+              "type": "TextBlock",
+              "text": "${formatNumber(hourly[0].pop * 100, 0)}% chance of rain",
+              "spacing": "None",
+              "wrap": true
+            },
+            {
+              "type": "TextBlock",
+              "text": "Winds ${hourly[0].wind_speed} mph ${hourly[0].wind_cdir}",
+              "spacing": "None",
+              "wrap": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ColumnSet",
+      "columns": [
+        {
+          "$data": "${data}",
+          "$when": "${$index != 0 && $index < 4}",
+          "type": "Column",
+          "width": 20,
+          "items": [
+            {
+              "type": "TextBlock",
+              "horizontalAlignment": "Center",
+              "text": "${convertFromUTC(formatEpoch(dt), 'America/New_York', 'dddd h tt')}",
+              "wrap": true
+            },
+            {
+              "type": "Image",
+              "url": "http://openweathermap.org/img/wn/${weather[0].icon}@2x.png"
+            },
+            {
+              "type": "FactSet",
+              "horizontalAlignment": "Right",
+              "facts": [
+                {
+                  "title": "Temp",
+                  "value": "${formatNumber(temp, 0)}"
+                },
+                {
+                  "title": "Feels Like",
+                  "value": "${formatNumber(feels_like, 0)}"
+                }
+              ]
+            }
+          ],
+          "selectAction": {
+            "type": "Action.OpenUrl",
+            "title": "View ${formatEpoch(dt, 'dddd')}",
+            "url": "https://www.microsoft.com"
+          }
+        }
+      ]
+    },
+    {
+      "type": "ColumnSet",
+      "columns": [
+        {
+          "$data": "${data}",
+          "$when": "${$index >= 4 && $index < 7}",
+          "type": "Column",
+          "width": 20,
+          "items": [
+            {
+              "type": "TextBlock",
+              "horizontalAlignment": "Center",
+              "text": "${convertFromUTC(formatEpoch(dt), 'America/New_York', 'dddd h tt')}",
+              "wrap": true
+            },
+            {
+              "type": "Image",
+              "url": "http://openweathermap.org/img/wn/${weather[0].icon}@2x.png"
+            },
+            {
+              "type": "FactSet",
+              "horizontalAlignment": "Right",
+              "facts": [
+                {
+                  "title": "Temp",
+                  "value": "${formatNumber(temp, 0)}"
+                },
+                {
+                  "title": "Feels Like",
+                  "value": "${formatNumber(feels_like, 0)}"
+                }
+              ]
+            }
+          ],
+          "selectAction": {
+            "type": "Action.OpenUrl",
+            "title": "View ${formatEpoch(dt, 'dddd')}",
+            "url": "https://www.microsoft.com"
+          }
+        }
+      ]
+    },
+    {
+      "type": "ColumnSet",
+      "columns": [
+        {
+          "$data": "${data}",
+          "$when": "${$index >= 7 && $index < 10}",
+          "type": "Column",
+          "width": 20,
+          "items": [
+            {
+              "type": "TextBlock",
+              "horizontalAlignment": "Center",
+              "text": "${convertFromUTC(formatEpoch(dt), 'America/New_York', 'dddd h tt')}",
+              "wrap": true
+            },
+            {
+              "type": "Image",
+              "url": "http://openweathermap.org/img/wn/${weather[0].icon}@2x.png"
+            },
+            {
+              "type": "FactSet",
+              "horizontalAlignment": "Right",
+              "facts": [
+                {
+                  "title": "Temp",
+                  "value": "${formatNumber(temp, 0)}"
+                },
+                {
+                  "title": "Feels Like",
+                  "value": "${formatNumber(feels_like, 0)}"
+                }
+              ]
+            }
+          ],
+          "selectAction": {
+            "type": "Action.OpenUrl",
+            "title": "View ${formatEpoch(dt, 'dddd')}",
+            "url": "https://www.microsoft.com"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "Medium",
+      "weight": "Bolder",
+      "text": "Enter Weather Input",
+      "wrap": true,
+      "style": "heading"
+    },
+    {
+      "type": "TextBlock",
+      "text": "Enter a preset city name, or manually enter a city / country.",
+      "wrap": true,
+      "spacing": "Medium"
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.Execute",
+      "title": "Reston",
+      "verb": "${forecastType}ForecastForReston",
+      "style": "positive",
+      "tooltip": "Reston, VA"
+    },
+    {
+      "type": "Action.Execute",
+      "style": "positive",
+      "title": "Sacramento",
+      "verb": "${forecastType}ForecastForSacramento",
+      "tooltip": "Sacramento, CA"
+    },
+    {
+      "type": "Action.ShowCard",
+      "title": "Enter City Name",
+      "card": {
+        "type": "AdaptiveCard",
+        "body": [
+          {
+            "type": "Input.Text",
+            "label": "City",
+            "id": "city",
+            "placeholder": "New York City"
+          },
+          {
+            "type": "Input.Text",
+            "label": "Country",
+            "id": "country",
+            "value": "US",
+            "placeholder": "UK"
+          }
+        ],
+        "actions": [
+          {
+            "type": "Action.Execute",
+            "title": "OK",
+            "verb": "${forecastType}ForecastWithCity"
+          }
+        ],
+        "$schema": "http://adaptivecards.io/schemas/adaptive-card.json"
+      }
+    }
+  ],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.5",
+  "id": "${forecastType}"
+}

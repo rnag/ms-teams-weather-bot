@@ -1,0 +1,70 @@
+{
+  "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.9/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.9",
+  "version": "1.0.0",
+  "id": "{appid}",
+  "packageName": "com.microsoft.teams.extension",
+  "developer": {
+    "name": "Teams App, Inc.",
+    "websiteUrl": "{baseUrl}",
+    "privacyUrl": "{baseUrl}/index.html#/privacy",
+    "termsOfUseUrl": "{baseUrl}/index.html#/termsofuse"
+  },
+  "icons": {
+    "color": "color.png",
+    "outline": "outline.png"
+  },
+  "name": {
+    "short": "ms-teams-weather-bot",
+    "full": "This field is not used"
+  },
+  "description": {
+    "short": "Short description of ms-teams-weather-bot.",
+    "full": "Full description of ms-teams-weather-bot."
+  },
+  "accentColor": "#FFFFFF",
+  "bots": [
+    {
+      "botId": "{botId}",
+      "scopes": ["personal", "team", "groupchat"],
+      "supportsFiles": false,
+      "isNotificationOnly": false,
+      "commandLists": [
+        {
+          "scopes": ["personal", "team", "groupchat"],
+          "commands": [
+            {
+              "title": "welcome",
+              "description": "Resend welcome card of this Bot"
+            },
+            {
+              "title": "learn",
+              "description": "Learn about Adaptive Card and Bot Command"
+            },
+            {
+              "title": "today's forecast",
+              "description": "Show Today's Weather Forecast for a City or Region"
+            },
+            {
+              "title": "daily forecast",
+              "description": "Show Daily Weather Forecast (for 7 Days) for a City or Region"
+            },
+            {
+              "title": "step example",
+              "description": "An example step-based workflow with the bot"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "composeExtensions": [],
+  "configurableTabs": [],
+  "staticTabs": [],
+  "permissions": ["identity", "messageTeamMembers"],
+  "validDomains": [],
+  "webApplicationInfo": {
+    "id": "{appClientId}",
+    "resource": "{webApplicationInfoResource}"
+  }
+}
