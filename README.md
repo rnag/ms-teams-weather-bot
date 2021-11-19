@@ -1,4 +1,4 @@
-# CB Teams Chatbot
+# MS Teams Weather Chatbot
 
 A foundational build of a Chat Bot for MS Teams with weather capabilities, built using **Typescript**.
 
